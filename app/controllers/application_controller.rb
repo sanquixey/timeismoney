@@ -4,10 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
+    # generate client token
+    @client_token = Braintree::ClientToken.generate
   end
 
   def authorize
-    binding.pry
+    customer = Braintree::Customer.create(
+      :payment_method_nonce => params[:payment_method_nonce]
+    )
+
+    session[:customer] = customer
   end
 
 end

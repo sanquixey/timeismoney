@@ -15,5 +15,6 @@
 //= require twitter/bootstrap
 //= require bootstrap
 //= require sweet-alert
+//= require websocket_rails/main
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
