@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root to: 'application#index'
+  resources :customers, :charges
 
-  post '/authorize', to: 'application#authorize'
+  root to: 'customers#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
