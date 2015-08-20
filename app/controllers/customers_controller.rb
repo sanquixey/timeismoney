@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
 
     if response.success?
       # store customer id in session
-      session[:customer] = response.customer.id
+      session[:braintree_customer_id] = response.customer.id
       redirect_to new_charge_path
     else
       flash[:danger] = "Transaction error: #{response.transaction.processor_response_text}"

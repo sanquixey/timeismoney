@@ -1,11 +1,7 @@
 class ChargesController < ApplicationController
 
   def new
-    redirect_to root_url unless session[:customer]
-
-
+    redirect_to root_url unless session[:braintree_customer_id]
   end
 
-  def create
-  end
 end

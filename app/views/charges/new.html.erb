@@ -3,8 +3,32 @@
         <h1>
             You've been on this site for
             <span id="seconds">0</span>
-            seconds, which has cost you $<span id="charge">0.01</span>.
+            second<span id="plural">s</span>, which has cost you $<span id="charge">0.00</span>.
         </h1>
-        <p>Close this tab or exit your browser if you want to stop paying.</p>
+        <p>Close this window/tab or exit your browser if you want to stop paying.</p>
     </div>
 </div>
+
+<script>
+ $(document).ready(function(){
+     // setup websocket dispatcher
+     var dispatcher = new WebSocketRails('localhost:3000/websocket');
+
+     // call open method of connection controller
+     dispatcher.on_open = function() {
+         dispatcher.trigger('connection_open');
+     }
+
+     // update info every second
+     window.setInterval(function() {
+         var seconds = $('#seconds').text() * 1;
+         $('#seconds').text(seconds + 1);
+         if ($('#seconds').text() === "1") {
+             $('#plural').hide();
+         } else if ($('#seconds').text() === "2") {
+             $('#plural').show();
+         }
+         $('#charge').text(($('#charge').text() * 1 + 0.01).toFixed(2));
+     }, 1000);
+ });
+</script>
