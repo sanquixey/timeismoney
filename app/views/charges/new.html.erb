@@ -12,7 +12,7 @@
 <script>
  $(document).ready(function(){
      // setup websocket dispatcher
-     var dispatcher = new WebSocketRails('localhost:3000/websocket');
+     var dispatcher = new WebSocketRails('timeismoney.herokuapp.com/websocket');
 
      // call open method of connection controller
      dispatcher.on_open = function() {
