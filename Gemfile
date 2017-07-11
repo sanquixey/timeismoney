@@ -31,7 +31,7 @@ gem 'sweet-alert'
 gem 'braintree'
 
 # use websocket rails
- 
+gem 'websocket-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
